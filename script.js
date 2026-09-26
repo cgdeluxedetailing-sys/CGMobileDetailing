@@ -44,22 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealElements = document.querySelectorAll(".reveal");
 
-    const revealObserver = new IntersectionObserver(
-        entries => {
+    const revealObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                     revealObserver.unobserve(entry.target);
                 }
             });
-        },
-        {
-            threshold: 0.12,
-            rootMargin: "0px 0px -40px 0px"
-        }
-    );
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" })
+        : null;
 
-    if ("IntersectionObserver" in window) {
+    if (revealObserver) {
         revealElements.forEach(element => revealObserver.observe(element));
     } else {
         revealElements.forEach(element => element.classList.add("visible"));
@@ -175,6 +171,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+    });
+
+
+    const contactForm = document.querySelector("#contact-form");
+    contactForm?.addEventListener("submit", event => {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) return;
+        const fields = new FormData(contactForm);
+        const subject = encodeURIComponent("Website enquiry — CG Mobile Detailing");
+        const body = encodeURIComponent(
+            "Name: " + fields.get("name") +
+            "\nEmail: " + fields.get("email") +
+            "\nPhone: " + (fields.get("phone") || "Not provided") +
+            "\nService: " + (fields.get("service") || "Not selected") +
+            "\n\n" + fields.get("message")
+        );
+        const status = document.querySelector("#form-status");
+        status.textContent = "Your email app should open with the enquiry ready to send. If it doesn’t, email help@cgmobiledetailing.com or call 0436 288 675.";
+        window.location.href = "mailto:help@cgmobiledetailing.com?subject=" + subject + "&body=" + body;
     });
 
 
