@@ -2115,3 +2115,8 @@ em {
 @media (prefers-reduced-motion: reduce) {
  .image-placeholder::after { display: none; }
 }
+
+.seo-hero { min-height: min(850px, 100svh); }
+.seo-links { display:flex; flex-wrap:wrap; gap:24px; align-items:center; margin-top:45px; }
+.areas-list span { padding:17px 0; border-bottom:1px solid #c5c5bf; margin-right:30px; font-family:var(--font-display); font-weight:600; }
+@media(max-width:700px){ .seo-hero { padding-top:130px; } .seo-hero .hero-visual { margin-top:45px; } .areas-list span { margin-right:15px; } }
