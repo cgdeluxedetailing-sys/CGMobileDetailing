@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cgdeluxedetailing-sys.github.io/CGMobileDetailing/sitemap.xml
