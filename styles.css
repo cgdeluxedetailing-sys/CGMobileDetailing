@@ -2085,3 +2085,38 @@ em {
         transform: none;
     }
 }
+
+
+/* LAUNCH POLISH */
+:focus-visible { outline: 2px solid #e7e5df; outline-offset: 4px; }
+.image-placeholder { min-height: 0; }
+.image-placeholder img { object-fit: cover; }
+.vehicle-gallery figure { min-width: 0; min-height: 0; }
+.site-header { transition: background .25s ease, border-color .25s ease; }
+.mobile-menu { padding-top: 100px; overflow-y: auto; }
+.menu-toggle { cursor: pointer; z-index: 101; }
+.contact { background: #111416; }
+.contact-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 9vw, 130px); }
+.contact-copy h2 { font-family: var(--font-display); font-size: clamp(48px, 6vw, 82px); line-height: .95; letter-spacing: -.07em; margin: 22px 0; }
+.contact-copy h2 em { color: #929590; }
+.contact-copy > p { max-width: 440px; color: #929694; font-size: 14px; line-height: 1.8; margin-bottom: 28px; }
+.contact-direct { display: block; width: fit-content; margin-top: 12px; color: #e7e5df; text-decoration: underline; text-underline-offset: 4px; }
+.contact-form { display: grid; gap: 10px; align-content: start; }
+.contact-form label { margin-top: 8px; color: #b9bcba; font-size: 11px; letter-spacing: .08em; }
+.contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 1px solid rgba(255,255,255,.2); border-radius: 0; background: #0b0d0e; color: #f4f3ef; padding: 14px; font: inherit; }
+.contact-form select { min-height: 50px; }
+.contact-form textarea { resize: vertical; }
+.contact-form .button { margin-top: 12px; justify-self: start; cursor: pointer; }
+.form-status { color: #bfc2bd; font-size: 12px; min-height: 1.5em; }
+@media (max-width: 700px) {
+ .contact-layout { grid-template-columns: 1fr; gap: 38px; }
+ .contact-form .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .image-placeholder::after { display: none; }
+}
+
+.seo-hero { min-height: min(850px, 100svh); }
+.seo-links { display:flex; flex-wrap:wrap; gap:24px; align-items:center; margin-top:45px; }
+.areas-list span { padding:17px 0; border-bottom:1px solid #c5c5bf; margin-right:30px; font-family:var(--font-display); font-weight:600; }
+@media(max-width:700px){ .seo-hero { padding-top:130px; } .seo-hero .hero-visual { margin-top:45px; } .areas-list span { margin-right:15px; } }
