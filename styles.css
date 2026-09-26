@@ -2085,3 +2085,243 @@ em {
         transform: none;
     }
 }
+
+
+/* POLISH / PRODUCTION REFINEMENTS */
+
+.site-header {
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        backdrop-filter .35s ease,
+        padding .35s ease;
+}
+
+.site-header.is-scrolled {
+    background: rgba(11,13,14,.86);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.brand-logo {
+    width: 43px;
+    height: 43px;
+    display: block;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.footer-logo .brand-logo {
+    width: 43px;
+    height: 43px;
+}
+
+.image-placeholder {
+    isolation: isolate;
+}
+
+.image-placeholder > img:not(.feature-stamp) {
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.image-placeholder:hover > img:not(.feature-stamp) {
+    transform: scale(1.025);
+}
+
+.results-gallery {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    grid-template-rows: repeat(2, minmax(240px, 330px));
+    gap: 14px;
+}
+
+.results-card {
+    position: relative;
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+    background: #1a1c1d;
+}
+
+.results-card-large {
+    grid-row: 1 / -1;
+}
+
+.results-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.results-card:hover img {
+    transform: scale(1.02);
+}
+
+.results-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55));
+}
+
+.results-card figcaption {
+    position: absolute;
+    z-index: 2;
+    left: 22px;
+    right: 22px;
+    bottom: 18px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: white;
+    font-size: 8px;
+    letter-spacing: .18em;
+}
+
+.results-card figcaption span {
+    color: rgba(255,255,255,.45);
+}
+
+.boat-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 65% 35%, rgba(255,255,255,.12), transparent 24%),
+        linear-gradient(135deg, #242829 0%, #101314 62%, #080a0b 100%);
+    border: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.boat-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(135deg, transparent 0 48%, rgba(255,255,255,.06) 48.2%, transparent 48.5%),
+        linear-gradient(315deg, transparent 0 64%, rgba(255,255,255,.04) 64.2%, transparent 64.5%);
+}
+
+.boat-panel strong {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -56%);
+    font-family: var(--font-display);
+    font-size: clamp(120px, 18vw, 250px);
+    line-height: .8;
+    letter-spacing: -.14em;
+    color: rgba(255,255,255,.06);
+}
+
+.boat-panel-index,
+.boat-panel-kicker,
+.boat-panel-caption {
+    position: relative;
+    z-index: 2;
+}
+
+.boat-panel-index {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: .18em;
+}
+
+.boat-panel-kicker {
+    color: #a4a6a4;
+    font-size: 8px;
+    letter-spacing: .2em;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.boat-panel-caption {
+    color: rgba(255,255,255,.48);
+    font-size: 8px;
+    letter-spacing: .18em;
+}
+
+.mobile-menu {
+    overscroll-behavior: contain;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+    top: 21px;
+    transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+    top: 21px;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 1000px) {
+    .results-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 420px 280px;
+    }
+
+    .results-card-large {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .vehicle-gallery {
+        grid-template-columns: 1.2fr .8fr;
+        grid-auto-rows: 230px;
+    }
+
+    .vehicle-gallery figure:first-child {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 700px) {
+    .brand-logo,
+    .footer-logo .brand-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .results-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: 330px 260px 260px;
+        gap: 10px;
+    }
+
+    .results-card-large {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .vehicle-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 175px;
+        gap: 8px;
+        margin-top: 45px;
+    }
+
+    .vehicle-gallery figure:first-child {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        height: 260px;
+    }
+
+    .boat-panel {
+        min-height: 380px;
+        padding: 22px;
+    }
+
+    .boat-panel strong {
+        font-size: 150px;
+    }
+}
