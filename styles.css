@@ -227,6 +227,13 @@ em {
 
 /* COMMON */
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 2px solid #d8d8d8;
+    outline-offset: 4px;
+}
+
 .section {
     position: relative;
     padding: var(--section) clamp(20px, 5vw, 80px);
@@ -831,7 +838,7 @@ em {
 
 .service-row {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 130px 40px;
+    grid-template-columns: minmax(0, 1fr) 130px auto;
     align-items: center;
     min-height: 115px;
     border-bottom: 1px solid var(--line);
@@ -879,12 +886,23 @@ em {
 }
 
 .service-row > a {
-    width: 35px;
-    height: 35px;
+    min-width: 72px;
+    min-height: 42px;
+    padding: 0 9px;
     border: 1px solid var(--line);
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .08em;
     transition: .3s ease;
+}
+
+.service-row > a span {
+    font-size: 12px;
 }
 
 .service-row:hover > a {
@@ -1921,12 +1939,15 @@ em {
     }
 
     .service-row {
-        grid-template-columns: minmax(0, 1fr) 65px;
+        grid-template-columns: minmax(0, 1fr) 65px auto;
         min-height: 105px;
+        gap: 8px;
     }
 
     .service-row > a {
-        display: none;
+        min-width: 60px;
+        min-height: 40px;
+        padding: 0 6px;
     }
 
     .service-name h3 {
