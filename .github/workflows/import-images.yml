@@ -1,0 +1,53 @@
+name: Import CG Mobile Detailing Images
+
+on:
+  push:
+    paths-ignore:
+      - "images/**"
+
+permissions:
+  contents: write
+
+jobs:
+  import-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download current website images
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p images
+
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/85517ad8-f440-452e-9ac6-253db8618203/IMG_4435.jpeg" -o "images/interior-detail.jpeg"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/b6b5a199-e3b4-434b-946b-edce017595e0/IMG_7504.jpeg" -o "images/hero.jpeg"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/1403dc12-e346-4818-80e7-3a199d34dd30/IMG_3819.jpeg" -o "images/exterior-detail.jpeg"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/9486895a-ada1-4b76-9bda-f6c5c5afcf51/IMG_3278.jpeg" -o "images/black-coupe.jpeg"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/9ec3cea9-2e2d-4261-9834-2a2bb1ae21fa/Untitled%2Bdesign%2B%281%29.png" -o "images/before-after-interior-1.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/a12a4623-7293-4f61-9c4c-c54e0ff400b9/Untitled%2Bdesign.png" -o "images/before-after-exterior.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/db90cecf-a04f-4433-9350-d1da337b6e43/Untitled%2Bdesign%2B%282%29.png" -o "images/before-after-floor.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/61a1cc7c-7db5-4a72-ada1-451e75ac43ee/Untitled%2Bdesign%2B%284%29.png" -o "images/before-after-rear.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/3fe2c085-1366-4d63-a82b-09ec56d1b31d/Untitled%2Bdesign%2B%283%29.png" -o "images/before-after-back-seat.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/7578d6df-c56a-44af-98d3-c8efb2b0e79e/Untitled%2Bdesign%2B%285%29.png" -o "images/before-after-mercedes.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/10e79d08-10b0-4e9e-8949-ef0451044ad1/Untitled%2Bdesign%2B%286%29.png" -o "images/before-after-4wd.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/83662e91-1e7d-410c-adbc-b7e9fd5fd418/Untitled%2Bdesign%2B%287%29.png" -o "images/premium-red.png"
+          curl -fL "https://images.squarespace-cdn.com/content/v1/69acf61f583cef279e938296/838af7c8-468a-483c-a1de-57521662b9aa/pngtree-most-popular-ink-miscellaneous-most-vector-png-image_15444116.png" -o "images/most-popular.png"
+
+          echo "Downloaded $(find images -type f | wc -l) image files."
+
+      - name: Commit imported images
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+          git commit -m "Import CG Mobile Detailing website images"
+          git push
