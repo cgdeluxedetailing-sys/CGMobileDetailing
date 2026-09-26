@@ -6,24 +6,53 @@
 
     <title>CG Mobile Detailing | Mobile Car Detailing Gippsland</title>
     <meta name="description" content="CG Mobile Detailing provides professional mobile car detailing across Sale and Gippsland. Interior, exterior, valet, presale and premium vehicle detailing.">
-    <meta name="theme-color" content="#111315">
+    <meta name="theme-color" content="#0b0d0e">\n    <meta name="robots" content="index,follow">\n    <link rel="canonical" href="https://www.cgmobiledetailing.com/">\n\n    <meta property="og:type" content="website">\n    <meta property="og:title" content="CG Mobile Detailing | Mobile Car Detailing Gippsland">\n    <meta property="og:description" content="Professional mobile car detailing across Sale and Gippsland. We come to your home, workplace or property.">\n    <meta property="og:url" content="https://www.cgmobiledetailing.com/">\n    <meta property="og:image" content="https://www.cgmobiledetailing.com/images/hero.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoDetailing",
+        "name": "CG Mobile Detailing",
+        "url": "https://www.cgmobiledetailing.com/",
+        "telephone": "+61 436 288 675",
+        "email": "help@cgmobiledetailing.com",
+        "areaServed": [
+            "Sale, Victoria",
+            "Maffra, Victoria",
+            "Stratford, Victoria",
+            "Rosedale, Victoria",
+            "Traralgon, Victoria",
+            "Morwell, Victoria",
+            "Moe, Victoria",
+            "Warragul, Victoria",
+            "Churchill, Victoria",
+            "Bairnsdale, Victoria",
+            "Lakes Entrance, Victoria",
+            "Paynesville, Victoria"
+        ],
+        "priceRange": "$",
+        "sameAs": [
+            "https://www.facebook.com/cgcardetailing/"
+        ]
+    }
+    </script>
 </head>
 
-<body>
+<body id="top">
 
 <div class="page-loader">
     <div class="loader-mark">CG</div>
 </div>
 
 <header class="site-header">
-    <a href="#" class="brand" aria-label="CG Mobile Detailing home">
-        <span class="brand-mark">CG</span>
+    <a href="#top" class="brand" aria-label="CG Mobile Detailing home">
+        <img src="logo%203.png" alt="CG Mobile Detailing logo" class="brand-logo">
         <span class="brand-copy">
             <strong>CG MOBILE</strong>
             <small>DETAILING</small>
@@ -40,13 +69,13 @@
 
     <a href="#booking" class="header-button">Book Now <span>↗</span></a>
 
-    <button class="menu-toggle" aria-label="Open menu">
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span>
         <span></span>
     </button>
 </header>
 
-<div class="mobile-menu">
+<div class="mobile-menu" id="mobile-menu">
     <a href="#services">Services</a>
     <a href="#ultra">Ultra Valet</a>
     <a href="#process">How It Works</a>
@@ -117,7 +146,7 @@
         <div class="hero-visual">
             <div class="image-frame">
                 <div class="image-placeholder">
-                    <img src="images/hero.jpeg" alt="Glossy black 4WD finished after professional detailing">
+                    <img src="images/hero.jpeg" alt="Glossy black 4WD finished after professional detailing" fetchpriority="high" decoding="async">
                 </div>
 
                 <div class="image-label">
@@ -226,8 +255,8 @@
 
             <div class="service-feature-image">
                 <div class="image-placeholder dark">
-                    <img src="images/black-coupe.jpeg" alt="Black vehicle with a deep glossy finish after detailing">
-                    <img class="feature-stamp" src="images/most-popular.png" alt="">
+                    <img loading="lazy" decoding="async" src="images/src="images/black-coupe.jpeg" alt="Black vehicle with a deep glossy finish after detailing">
+                    <img loading="lazy" decoding="async" class="feature-stamp" src="images/src="images/most-popular.png" alt="">
                 </div>
 
                 <div class="feature-tag">01 / PREMIUM</div>
@@ -283,7 +312,7 @@
                 </div>
                 <div class="service-cost">
                     <small>FROM</small>
-                    <strong>$125</strong>
+                    <strong>$99</strong>
                 </div>
                 <a href="#booking" aria-label="Book Full Exterior Detail">↗</a>
             </article>
@@ -296,7 +325,7 @@
                 </div>
                 <div class="service-cost">
                     <small>FROM</small>
-                    <strong>$165</strong>
+                    <strong>$140</strong>
                 </div>
                 <a href="#booking" aria-label="Book Full Interior Detail">↗</a>
             </article>
@@ -386,7 +415,7 @@
 
         <div class="ultra-image">
             <div class="image-placeholder">
-                <img src="images/premium-red.png" alt="Red Mercedes and detailed interior after professional vehicle detailing">
+                <img loading="lazy" decoding="async" src="images/src="images/premium-red.png" alt="Red Mercedes and detailed interior after professional vehicle detailing">
             </div>
         </div>
 
@@ -400,30 +429,33 @@
             <span class="section-number">04 / THE RESULT</span>
             <h2>Let the work<br><em>speak for itself.</em></h2>
             <p>
-                Replace the images below with genuine CG Mobile Detailing
-                before-and-after photography.
+                Real before-and-after work from CG Mobile Detailing,
+                showing the difference proper detailing can make.
             </p>
         </div>
 
-        <div class="comparison reveal">
+        <div class="results-gallery reveal">
 
-            <div class="comparison-before">
-                <div class="comparison-label">BEFORE</div>
-                <div class="image-placeholder">
-                    <img src="images/before-after-4wd.png" alt="4WD before and after exterior detailing">
-                </div>
-            </div>
+            <figure class="results-card results-card-large">
+                <img src="images/before-after-4wd.png"
+                     alt="4WD before and after exterior detailing"
+                     loading="lazy" decoding="async">
+                <figcaption><span>01</span>4WD EXTERIOR</figcaption>
+            </figure>
 
-            <div class="comparison-after">
-                <div class="comparison-label">AFTER</div>
-                <div class="image-placeholder dark">
-                    <img src="images/before-after-exterior.png" alt="Black 4WD exterior before and after detailing">
-                </div>
-            </div>
+            <figure class="results-card">
+                <img src="images/before-after-exterior.png"
+                     alt="Exterior vehicle before and after detailing"
+                     loading="lazy" decoding="async">
+                <figcaption><span>02</span>EXTERIOR FINISH</figcaption>
+            </figure>
 
-            <div class="comparison-handle">
-                <span>↔</span>
-            </div>
+            <figure class="results-card">
+                <img src="images/before-after-interior-1.png"
+                     alt="Vehicle interior before and after detailing"
+                     loading="lazy" decoding="async">
+                <figcaption><span>03</span>INTERIOR RESET</figcaption>
+            </figure>
 
         </div>
 
@@ -472,7 +504,7 @@
             <div class="vertical-text">MOBILE / DETAILING / GIPPSLAND</div>
 
             <div class="image-placeholder">
-                <img src="images/exterior-detail.jpeg" alt="Silver 4WD being professionally washed and detailed">
+                <img loading="lazy" decoding="async" src="images/src="images/exterior-detail.jpeg" alt="Silver 4WD being professionally washed and detailed">
             </div>
         </div>
 
@@ -497,12 +529,12 @@
         </div>
 
         <div class="vehicle-gallery reveal">
-            <figure><img src="images/interior-detail.jpeg" alt="Clean detailed vehicle interior"></figure>
-            <figure><img src="images/before-after-interior-1.png" alt="Vehicle interior before and after detailing"></figure>
-            <figure><img src="images/before-after-floor.png" alt="Vehicle floor before and after detailing"></figure>
-            <figure><img src="images/before-after-rear.png" alt="Vehicle rear interior before and after detailing"></figure>
-            <figure><img src="images/before-after-back-seat.png" alt="Vehicle back seat before and after detailing"></figure>
-            <figure><img src="images/before-after-mercedes.png" alt="Mercedes interior before and after detailing"></figure>
+            <figure><img loading="lazy" decoding="async" src="images/src="images/interior-detail.jpeg" alt="Clean detailed vehicle interior"></figure>
+            <figure><img loading="lazy" decoding="async" src="images/src="images/before-after-interior-1.png" alt="Vehicle interior before and after detailing"></figure>
+            <figure><img loading="lazy" decoding="async" src="images/src="images/before-after-floor.png" alt="Vehicle floor before and after detailing"></figure>
+            <figure><img loading="lazy" decoding="async" src="images/src="images/before-after-rear.png" alt="Vehicle rear interior before and after detailing"></figure>
+            <figure><img loading="lazy" decoding="async" src="images/src="images/before-after-back-seat.png" alt="Vehicle back seat before and after detailing"></figure>
+            <figure><img loading="lazy" decoding="async" src="images/src="images/before-after-mercedes.png" alt="Mercedes interior before and after detailing"></figure>
         </div>
 
     </section>
@@ -612,8 +644,11 @@
     <section class="boat section">
 
         <div class="boat-image reveal">
-            <div class="image-placeholder dark">
-                <img src="images/hero.jpeg" alt="CG Mobile Detailing service vehicle and finished 4WD">
+            <div class="boat-panel">
+                <span class="boat-panel-index">09 / MARINE DETAILING</span>
+                <strong>CG</strong>
+                <span class="boat-panel-kicker">MOBILE DETAILING</span>
+                <span class="boat-panel-caption">GIPPSLAND · BOAT CARE</span>
             </div>
         </div>
 
@@ -681,8 +716,9 @@
                     <b>+</b>
                 </summary>
                 <p>
-                    Services currently start from $99, with larger packages
-                    available depending on the level of detailing required.
+                    Current services start from $99, with the Ultra Valet at
+                    $250 and larger packages available for vehicles needing
+                    more comprehensive work.
                 </p>
             </details>
 
@@ -718,8 +754,9 @@
             </h2>
 
             <p>
-                Choose your service and get your vehicle booked in.
-                If you're unsure which option suits your vehicle, get in touch.
+                Choose your service, select a suitable time and let CG Mobile
+                Detailing come to you. Not sure which service fits? Call
+                0436 288 675 and we'll point you in the right direction.
             </p>
 
             <div class="booking-actions">
