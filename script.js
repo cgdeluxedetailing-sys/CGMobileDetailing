@@ -21,15 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileMenu = document.querySelector(".mobile-menu");
     const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
-    menuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("open");
-        document.body.classList.toggle("menu-open");
+    menuButton?.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        document.body.classList.toggle("menu-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     });
 
     mobileLinks.forEach(link => {
         link.addEventListener("click", () => {
             mobileMenu.classList.remove("open");
             document.body.classList.remove("menu-open");
+            menuButton?.setAttribute("aria-expanded", "false");
+            menuButton?.setAttribute("aria-label", "Open menu");
         });
     });
 
@@ -55,9 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    revealElements.forEach(element => {
-        revealObserver.observe(element);
-    });
+    if ("IntersectionObserver" in window) {
+        revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+        revealElements.forEach(element => element.classList.add("visible"));
+    }
 
 
     /*
